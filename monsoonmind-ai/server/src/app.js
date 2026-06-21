@@ -43,6 +43,14 @@ app.get("/health", (_req, res) => {
   });
 });
 
+app.get("/", (_req, res) => {
+  res.status(200).json({
+    status: "ok",
+    message: "MonsoonMind AI API is running",
+    health: "/health"
+  });
+});
+
 app.use("/api/auth", authRoutes);
 app.use("/api/farm", farmRoutes);
 app.use("/api/weather", weatherRoutes);
